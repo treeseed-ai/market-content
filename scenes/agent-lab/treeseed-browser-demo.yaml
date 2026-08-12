@@ -53,7 +53,7 @@ agentLab:
     - id: cooperative-planning-demo
       title: Cooperative Planning Demo
       agentTests:
-        - codebase-cartographer-basic
+        - agent-lab-project-inventory
       durationSeconds: 900
       timePolicy:
         cooperativePlanningPercent: 90
