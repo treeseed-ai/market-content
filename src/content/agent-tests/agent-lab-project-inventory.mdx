@@ -6,14 +6,13 @@ trigger:
   planningOnly: true
   agents:
     - audience-reviewer
-    - workday-reporter
     - evidence-researcher
     - guide-steward
     - guide-writer
     - knowledge-cartographer
     - publication-steward
-    - self-hosting-architect
     - technical-verifier
+    - workday-reporter
 expect:
   productionPath: true
   everySelectedAgent: true
@@ -24,4 +23,3 @@ groupIds: []
 ---
 
 Run the enabled agents for this project through a real planning-only workday using the normal provider, AgentKernel, TreeDX, usage, and settlement paths.
-
