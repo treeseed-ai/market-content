@@ -6,7 +6,6 @@ defaultEnvironments:
 environments:
   - local
 references:
-  - project:treeseed/market
   - capacity-provider:treeseed/agents
 resources:
   teams:
