@@ -19,8 +19,6 @@ budget:
   maxContextItems: 8
   maxTokens: 4000
 maxLatencyMs: 3000
-trigger: {}
-expect: {}
 groupIds: [editorial, guide, work]
 contextQueryRefs: [guide-work-foundation]
 ---
@@ -28,4 +26,3 @@ contextQueryRefs: [guide-work-foundation]
 This isolated test proves that the editorial foundation query retrieves the
 four exact Guide work-section identities within its declared item, token, and
 latency bounds. It does not run an agent or mutate content.
-
