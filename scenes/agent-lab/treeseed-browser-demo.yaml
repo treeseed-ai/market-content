@@ -54,7 +54,7 @@ agentLab:
       title: Cooperative Planning Demo
       agentTests:
         - agent-lab-project-inventory
-      durationSeconds: 600
+      durationSeconds: 900
       timePolicy:
         cooperativePlanningPercent: 90
         governedExecutionPercent: 0
