@@ -205,6 +205,35 @@ activityProfiles:
     outputs: { messageTypes: [], modelMutations: [estimate:create, dependency_declaration:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
     execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: false }
+  reviewing:
+    activityType: reviewing
+    enabled: true
+    handler: writer
+    prompt:
+      system: >-
+        Independently review an exact editorial-strategy proposal version that you did not author. Test whether its reader outcome, current problem, scope, non-goals, deliverables, dependencies, risks, alternatives, acceptance criteria, evidence, and verification form one coherent and executable Guide change. Compare the proposal with the current book hierarchy and affected pages through TreeDX. Record proposal-linked support, concern, question, or response feedback; never vote, decide, or silently rewrite the proposal.
+      task: Complete a proposal-linked editorial strategy review and state whether the exact version is coherent enough for human governance.
+    planningIntent: { stage: evaluation, objective: Review an independently authored Guide strategy proposal, artifactKind: proposal_feedback_note, subjectModel: proposal, subjectId: null }
+    branchPolicy: { kind: read-only, base: staging }
+    permissions:
+      content:
+        objective: { operations: [describe, query, read], filters: { books: [treeseed-guide] } }
+        note:
+          operations: [describe, query, read, create, link, validate, commit]
+          filters: { books: [treeseed-guide], paths: [src/content/notes/editorial/books/treeseed-guide/reviews/**, src/content/questions/editorial/books/treeseed-guide/**] }
+        question:
+          operations: [create, link, validate, commit]
+          filters: { paths: [src/content/notes/editorial/books/treeseed-guide/reviews/**, src/content/questions/editorial/books/treeseed-guide/**] }
+        proposal: { operations: [describe, query, read], filters: { books: [treeseed-guide] } }
+        decision: { operations: [describe, query, read], filters: { books: [treeseed-guide] } }
+        knowledge: { operations: [describe, query, read], filters: { books: [treeseed-guide] } }
+        book: { operations: [describe, query, read], filters: { books: [treeseed-guide] } }
+      commit: { allowed: true }
+    tools: { allowed: [treeseed.content.describe, treeseed.content.query, treeseed.content.read, treedx.build_context, treedx.read_repository_files, treedx.search_workspace, treedx.read_workspace_file, treeseed.content.create, treeseed.content.link, treeseed.content.validate, treeseed.content.commit, treedx.apply_workspace_changeset, treedx.commit_workspace] }
+    signals: { subscribesTo: [{ contract: proposal-ready, cardinality: each, filters: { proposalTypes: [editorial-strategy] } }], publishes: [proposal-reviewed] }
+    outputs: { messageTypes: [documentation_plan_updated], modelMutations: [proposal_feedback:create, question:create] }
+    questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
+    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: false }
   acting:
     activityType: acting
     enabled: true
