@@ -1,0 +1,31 @@
+---
+id: guide-work-foundation-context
+agent: guide-steward
+kind: context-query
+queryRef:
+  id: guide-work-foundation
+  revision: 1
+testRef: treeseed-guide-work-foundation-v1
+expectedIdentities:
+  - guide.work
+  - guide.work.agents
+  - guide.work.workdays
+  - guide.work.capacity-providers
+expectedRelations: []
+resultBounds:
+  min: 4
+  max: 8
+budget:
+  maxContextItems: 8
+  maxTokens: 4000
+maxLatencyMs: 3000
+trigger: {}
+expect: {}
+groupIds: [editorial, guide, work]
+contextQueryRefs: [guide-work-foundation]
+---
+
+This isolated test proves that the editorial foundation query retrieves the
+four exact Guide work-section identities within its declared item, token, and
+latency bounds. It does not run an agent or mutate content.
+
