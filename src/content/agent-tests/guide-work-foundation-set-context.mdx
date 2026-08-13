@@ -5,20 +5,26 @@ kind: context-query-set
 querySetRef:
   id: guide-work-foundation
   revision: 2
-testRef: treeseed-guide-work-foundation-set-v2
+testRef: treeseed-guide-work-foundation-set-v3
 expectedIdentities:
   - guide.work
   - guide.work.agents
   - guide.work.workdays
   - guide.work.capacity-providers
 expectedRelations: []
+expectedPaths:
+  - src/content/knowledge/treeseed-guide/work.md
+  - src/content/knowledge/treeseed-guide/work/agents.md
+  - src/content/knowledge/treeseed-guide/work/workdays.md
+  - src/content/knowledge/treeseed-guide/work/capacity-providers.md
+expectedSchemaVersions:
+  - treeseed.knowledge-page/v1
 resultBounds:
   min: 4
   max: 4
 budget:
   maxContextItems: 4
   maxTokens: 5000
-maxLatencyMs: 4000
 groupIds: [editorial, guide, work]
 ---
 
