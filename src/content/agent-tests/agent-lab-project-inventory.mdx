@@ -1,14 +1,12 @@
 ---
 id: agent-test:agent-lab-project-inventory
-agent: audience-reviewer
+agent: evidence-researcher
 kind: workday
 trigger:
   planningOnly: true
   agents:
-    - audience-reviewer
     - evidence-researcher
     - guide-steward
-    - technical-verifier
 expect:
   productionPath: true
   everySelectedAgent: true
