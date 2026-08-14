@@ -54,16 +54,18 @@ agentLab:
       title: Cooperative Planning Demo
       agentTests:
         - agent-lab-project-inventory
-      durationSeconds: 3600
+      durationSeconds: 900
       timePolicy:
         cooperativePlanningPercent: 90
         governedExecutionPercent: 0
         reservePercent: 10
       planningSession:
         rounds: 1
-        assignmentTimeboxSeconds: 900
+        assignmentTimeboxSeconds: 600
         tokenWarning: 12000
-      maxActiveAssignments: 2
+      maxActiveAssignments: 1
       planningOnly: true
+      activityTypes:
+        - planning
 training:
   enabled: false
