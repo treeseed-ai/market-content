@@ -4,8 +4,8 @@ agent: guide-steward
 kind: context-query
 queryRef:
   id: guide-work-foundation
-  revision: 1
-testRef: treeseed-guide-work-foundation-v2
+  revision: 2
+testRef: treeseed-guide-work-foundation-v3
 expectedIdentities:
   - guide.work
   - guide.work.agents
@@ -21,9 +21,9 @@ expectedSchemaVersions:
   - treeseed.knowledge-page/v1
 resultBounds:
   min: 4
-  max: 8
+  max: 4
 budget:
-  maxContextItems: 8
+  maxContextItems: 4
   maxTokens: 4000
 groupIds: [editorial, guide, work]
 contextQueryRefs: [guide-work-foundation]
