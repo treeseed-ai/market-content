@@ -61,7 +61,7 @@ agentLab:
         reservePercent: 10
       planningSession:
         rounds: 1
-        assignmentTimeboxSeconds: 120
+        assignmentTimeboxSeconds: 300
         tokenWarning: 12000
       maxActiveAssignments: 1
       planningOnly: true
