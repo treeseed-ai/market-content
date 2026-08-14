@@ -56,6 +56,7 @@ activityProfiles:
           - query
           - read
           - create
+          - update
           - link
           - validate
           - commit
@@ -95,6 +96,7 @@ activityProfiles:
         question:
           operations:
           - create
+          - update
           - link
           - validate
           - commit
@@ -102,7 +104,7 @@ activityProfiles:
             paths: *id002
       commit:
         allowed: true
-    tools: { allowed: [treeseed.content.describe, treeseed.content.query, treeseed.content.read, treedx.build_context, treedx.read_repository_files, treedx.search_workspace, treedx.read_workspace_file, treeseed.content.create, treeseed.content.link, treeseed.content.validate, treeseed.content.commit, treedx.apply_workspace_changeset, treedx.commit_workspace] }
+    tools: { allowed: [treeseed.content.describe, treeseed.content.query, treeseed.content.read, treedx.build_context, treedx.read_repository_files, treedx.search_workspace, treedx.read_workspace_file, treeseed.content.create, treeseed.content.update, treeseed.content.link, treeseed.content.validate, treeseed.content.commit, treedx.apply_workspace_changeset, treedx.commit_workspace] }
     signals: { publishes: [evidence-ready] }
     outputs: { messageTypes: [documentation_plan_updated], modelMutations: [review_note:create, question:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
@@ -133,6 +135,7 @@ activityProfiles:
           - query
           - read
           - create
+          - update
           - link
           - validate
           - commit
@@ -172,6 +175,7 @@ activityProfiles:
         question:
           operations:
           - create
+          - update
           - link
           - validate
           - commit
@@ -179,7 +183,7 @@ activityProfiles:
             paths: *id002
       commit:
         allowed: true
-    tools: { allowed: [treeseed.content.describe, treeseed.content.query, treeseed.content.read, treedx.build_context, treedx.read_repository_files, treedx.search_workspace, treedx.read_workspace_file, treeseed.content.create, treeseed.content.link, treeseed.content.validate, treeseed.content.commit, treedx.apply_workspace_changeset, treedx.commit_workspace] }
+    tools: { allowed: [treeseed.content.describe, treeseed.content.query, treeseed.content.read, treedx.build_context, treedx.read_repository_files, treedx.search_workspace, treedx.read_workspace_file, treeseed.content.create, treeseed.content.update, treeseed.content.link, treeseed.content.validate, treeseed.content.commit, treedx.apply_workspace_changeset, treedx.commit_workspace] }
     signals: { subscribesTo: [{ contract: proposal-ready, cardinality: each, filters: { proposalTypes: [audience-experience, editorial-strategy] } }], publishes: [proposal-reviewed] }
     outputs: { messageTypes: [docs_mutation_completed], modelMutations: [proposal_feedback:create, question:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
