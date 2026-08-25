@@ -163,6 +163,8 @@ activityProfiles:
             books: *id001
       commit:
         allowed: false
+      repository:
+        allowCodeMutation: true
     tools: { allowed: [treeseed.content.describe, treeseed.content.query, treeseed.content.read, treedx.build_context, treedx.read_repository_files, treedx.search_workspace, treedx.read_workspace_file, treeseed.status, treeseed.changed_paths, treeseed.verify] }
     outputs: { messageTypes: [docs_mutation_completed], modelMutations: [linked_note:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
