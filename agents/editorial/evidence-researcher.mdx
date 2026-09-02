@@ -125,7 +125,13 @@ activityProfiles:
     signals: { publishes: [evidence-ready] }
     outputs: { messageTypes: [research_note_created], modelMutations: [linked_note:create, question:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: human-or-agent, allowedAgentClasses: [engineering, testing, architecture] } }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 2400, maxRetries: 2, verificationRequired: false }
+    execution: { maxRuntimeSeconds: 2400, maxRetries: 2, verificationRequired: false }
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.planning
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   estimating:
     activityType: estimating
     enabled: true
@@ -139,7 +145,13 @@ activityProfiles:
     tools: { allowed: [treeseed.content.describe, treeseed.content.query, treeseed.content.read, treedx.build_context, treedx.read_repository_files] }
     signals: { subscribesTo: [{ contract: proposal-ready, cardinality: each }], publishes: [proposal-estimated] }
     outputs: { messageTypes: [], modelMutations: [estimate:create] }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 600, maxRetries: 1, verificationRequired: false }
+    execution: { maxRuntimeSeconds: 600, maxRetries: 1, verificationRequired: false }
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.estimation
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
 ---
 
 Research notes carry detailed evidence so the Guide can remain concise and trustworthy.

@@ -153,11 +153,15 @@ activityProfiles:
       defaultAnswerPolicy:
         kind: human-or-agent
     execution:
-      requiredCapabilities:
-        - agent-execution
       maxRuntimeSeconds: 1800
       maxRetries: 2
       verificationRequired: false
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.planning
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   estimating:
     activityType: estimating
     enabled: true
@@ -265,11 +269,15 @@ activityProfiles:
       defaultAnswerPolicy:
         kind: human-or-agent
     execution:
-      requiredCapabilities:
-        - agent-execution
       maxRuntimeSeconds: 1800
       maxRetries: 2
       verificationRequired: false
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.estimation
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   reviewing:
     activityType: reviewing
     enabled: true
@@ -377,11 +385,15 @@ activityProfiles:
       defaultAnswerPolicy:
         kind: human-or-agent
     execution:
-      requiredCapabilities:
-        - agent-execution
       maxRuntimeSeconds: 1800
       maxRetries: 2
       verificationRequired: false
+    capabilityRequirements:
+      - capabilityId: treeseed.engineering.review
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   acting:
     activityType: acting
     enabled: true
@@ -498,11 +510,15 @@ activityProfiles:
       defaultAnswerPolicy:
         kind: human-or-agent
     execution:
-      requiredCapabilities:
-        - agent-execution
       maxRuntimeSeconds: 1800
       maxRetries: 2
       verificationRequired: false
+    capabilityRequirements:
+      - capabilityId: treeseed.engineering.review
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
 ---
 
 Reviewer for the market TreeSeed project.

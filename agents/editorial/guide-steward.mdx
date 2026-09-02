@@ -139,7 +139,13 @@ activityProfiles:
     signals: { subscribesTo: [{ contract: evidence-ready, producerPolicy: all }], publishes: [proposal-ready] }
     outputs: { messageTypes: [documentation_plan_updated], modelMutations: [linked_note:create, question:create, proposal:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: false }
+    execution: { maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: false }
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.planning
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   estimating:
     activityType: estimating
     enabled: true
@@ -209,7 +215,13 @@ activityProfiles:
     signals: { subscribesTo: [{ contract: proposal-ready, cardinality: each }], publishes: [proposal-estimated] }
     outputs: { messageTypes: [], modelMutations: [estimate:create, dependency_declaration:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: false }
+    execution: { maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: false }
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.estimation
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   reviewing:
     activityType: reviewing
     enabled: true
@@ -238,7 +250,13 @@ activityProfiles:
     signals: { subscribesTo: [{ contract: proposal-ready, cardinality: each, filters: { proposalTypes: [editorial-strategy] } }], publishes: [proposal-reviewed] }
     outputs: { messageTypes: [documentation_plan_updated], modelMutations: [proposal_feedback:create, question:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: false }
+    execution: { maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: false }
+    capabilityRequirements:
+      - capabilityId: treeseed.engineering.review
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   acting:
     activityType: acting
     enabled: true
@@ -321,7 +339,13 @@ activityProfiles:
     signals: { subscribesTo: [{ contract: governed-execution-ready }], publishes: [] }
     outputs: { messageTypes: [project_summary_updated], modelMutations: [linked_note:create, knowledge_update:create] }
     questionPolicy: { blockExecutionWhenCreated: true, defaultAnswerPolicy: { kind: team-human } }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: true }
+    execution: { maxRuntimeSeconds: 1800, maxRetries: 2, verificationRequired: true }
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.planning
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
 ---
 
 The Guide Steward coordinates editorial continuity; governance and publication remain independent.

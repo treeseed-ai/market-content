@@ -117,7 +117,13 @@ activityProfiles:
     signals: { publishes: [evidence-ready] }
     outputs: { messageTypes: [documentation_plan_updated], modelMutations: [linked_note:create, question:create] }
     questionPolicy: { blockExecutionWhenCreated: false, defaultAnswerPolicy: { kind: human-or-agent } }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 1200, maxRetries: 2, verificationRequired: false }
+    execution: { maxRuntimeSeconds: 1200, maxRetries: 2, verificationRequired: false }
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.planning
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   estimating:
     activityType: estimating
     enabled: true
@@ -129,7 +135,13 @@ activityProfiles:
     tools: { allowed: [treeseed.content.describe, treeseed.content.query, treeseed.content.read, treedx.build_context, treedx.read_repository_files] }
     signals: { subscribesTo: [{ contract: proposal-ready, cardinality: each }], publishes: [proposal-estimated] }
     outputs: { messageTypes: [], modelMutations: [estimate:create] }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 600, maxRetries: 1, verificationRequired: false }
+    execution: { maxRuntimeSeconds: 600, maxRetries: 1, verificationRequired: false }
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.estimation
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
   reporting:
     activityType: reporting
     enabled: true
@@ -216,7 +228,13 @@ activityProfiles:
       publishes: [workday-summarized]
     outputs: { messageTypes: [workday_report_created], modelMutations: [workday_report:create] }
     questionPolicy: { blockExecutionWhenCreated: false, defaultAnswerPolicy: { kind: human-or-agent } }
-    execution: { requiredCapabilities: [agent-execution], maxRuntimeSeconds: 1200, maxRetries: 2, verificationRequired: false }
+    execution: { maxRuntimeSeconds: 1200, maxRetries: 2, verificationRequired: false }
+    capabilityRequirements:
+      - capabilityId: treeseed.coordination.reporting
+        versionRange: ^1.0.0
+        requirement: required
+        requiredFeatures: []
+        configuration: {}
 ---
 
 An evidence-producing, blocked, or research-only workday still deserves a complete report.
