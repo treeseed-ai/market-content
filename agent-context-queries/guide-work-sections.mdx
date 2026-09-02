@@ -2,7 +2,7 @@
 id: guide-work-sections
 title: TreeSeed Guide Work section pages
 description: Retrieve the exact Agents, Workdays, and Capacity Providers section pages below the Work index.
-revision: 2
+revision: 3
 maturity: draft
 purpose: research
 query: TreeSeed Guide Agents Workdays Capacity Providers
@@ -10,9 +10,9 @@ target:
   kind: content
   models: [knowledge]
   paths:
-    - /src/content/knowledge/treeseed-guide/work/agents.md
-    - /src/content/knowledge/treeseed-guide/work/workdays.md
-    - /src/content/knowledge/treeseed-guide/work/capacity-providers.md
+    - knowledge/treeseed-guide/work/agents.md
+    - knowledge/treeseed-guide/work/workdays.md
+    - knowledge/treeseed-guide/work/capacity-providers.md
 relations: []
 depth: 0
 resultLimit: 3
@@ -21,7 +21,12 @@ contextBudget:
   maxCharacters: 26000
 tokenBudget: 4000
 format: full
-required: true
+sources:
+  - scope: current-project
+requirement: required
+priority: 100
+summarization: none
+filters: {}
 ---
 
 This bounded subtree query supplies the three current Work section pages. Its
