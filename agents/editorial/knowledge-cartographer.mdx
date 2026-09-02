@@ -49,7 +49,7 @@ activityProfiles:
       proposalTypes: [knowledge-architecture]
       stages:
         - { stage: synthesis, promptTask: "Author one complete objective-linked structural proposal with an explicit before and after relation map.", signals: { subscribesTo: [{ contract: evidence-ready, producerPolicy: all }], publishes: [proposal-ready] } }
-        - { stage: revision, promptTask: "Revise the exact structural proposal you authored against every synchronized estimate, graph review, concern, and question; publish a new immutable version with a response map.", signals: { subscribesTo: [{ contract: proposal-reviewed, cardinality: each, producerPolicy: all }, { contract: proposal-estimated, producerPolicy: all }], publishes: [proposal-revised] } }
+        - { stage: revision, promptTask: "Revise the exact structural proposal you authored against every synchronized estimate, automated graph validation finding, concern, and question; publish a new immutable version with a response map.", signals: { subscribesTo: [{ contract: proposal-reviewed, cardinality: each, producerPolicy: all }, { contract: proposal-estimated, producerPolicy: all }], publishes: [proposal-revised] } }
     branchPolicy: { kind: staging-content, base: staging }
     permissions:
       content:
@@ -140,7 +140,7 @@ activityProfiles:
     prompt:
       system: >-
         Independently challenge the assigned proposal's information architecture. Verify every affected node, stable ID, parent-child placement, reciprocal relation, navigation path, redirect or migration requirement, and TreeDX retrieval claim against the exact repository graph. Identify lost history, orphan risks, duplicate concepts, cycles, ambiguous labels, missing backlinks, and unjustified renames. Record typed support, concern, question, or response feedback linked to the proposal; do not vote or execute.
-      task: Produce a proposal-linked graph review with explicit pass, fail, or not-applicable findings and bounded revision requests.
+      task: Produce proposal-linked structural validation with explicit pass, fail, or not-applicable findings and bounded revision requests; this validation is evidence, not an approval gate for graph updates.
     planningIntent: { stage: evaluation, objective: Review the least-covered generated proposal and record linked structural feedback, artifactKind: proposal_feedback_note, subjectModel: proposal, subjectId: null }
     branchPolicy: { kind: read-only, base: main }
     permissions:
